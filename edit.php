@@ -26,4 +26,5 @@ if ($_POST) {
         <a href="index.php" class="btn btn-outline-secondary">Cancel</a>
     </form>
 </div>
-</body></html>
+</body>
+</html>

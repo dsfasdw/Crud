@@ -6,7 +6,17 @@ if ($_POST) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['name'];
         $_SESSION['user_role'] = $user['role'];
-        header("location: menu.php"); // ← Changed from index.php to menu.php
+        
+        
+         // Redirect based on role
+         if ($user['role'] == 'admin') {
+            header("location: adminmenu.php");
+         }else if($user['role'] == 'coach'){
+            header("location: coachmenu.php");
+        } else {
+            header("location: menu.php");
+        }
+        exit();
     }
 }
 ?>
