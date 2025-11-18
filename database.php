@@ -28,14 +28,14 @@ CREATE TABLE clients (
     FOREIGN KEY (member_id) REFERENCES members(id)
 );
 
-CREATE TABLE Events {
+CREATE TABLE Events (
     evCode INT AUTO_INCREMENT PRIMARY KEY
     evName TEXT NOT NULL,
     evDate DATE NOT NULL,
     evVenue TEXT NOT NULL,
     evRFee DECIMAL(10,2) NOT NULL
 
-}
+)
 
 CREATE TABLE Participants (
     partID INT NOT NULL PRIMARY KEY,
