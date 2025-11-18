@@ -7,11 +7,7 @@ if (empty($_GET['search'])) {
 $search = trim($_GET['search']);
 $search_like = "%$search%";
 
-// Search members
-$stmt = $conn->prepare("SELECT * FROM members WHERE member_id = ? OR member_name LIKE ? OR member_email LIKE ?");
-$stmt->bind_param("iss", $search, $search_like, $search_like);
-$stmt->execute();
-$members = $stmt->get_result();
+
 
 // Search clients  
 $stmt = $conn->prepare("SELECT * FROM clients WHERE id = ? OR name LIKE ? OR email LIKE ?");
@@ -33,22 +29,7 @@ $clients = $stmt->get_result();
 
     <h5>Results for "<?= htmlspecialchars($search) ?>"</h5>
     
-    <?php if ($members->num_rows > 0): ?>
-    <h6>Members</h6>
-    <table class="table table-sm">
-        <?php while($row = $members->fetch_assoc()): ?>
-        <tr>      
-            <td><?= $row['member_id'] ?></td>
-            <td><?= htmlspecialchars($row['member_name']) ?></td>
-            <td><?= htmlspecialchars($row['member_email']) ?></td>
-            <td>
-                <a href="editmembers.php?id=<?= $row['member_id'] ?>" class="btn btn-sm btn-outline-primary">Edit</a>
-                <a href="deletemembers.php?id=<?= $row['member_id'] ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete?')">Delete</a>
-            </td>
-        </tr>
-        <?php endwhile; ?>
-    </table>
-    <?php endif; ?>
+    
 
     <?php if ($clients->num_rows > 0): ?>
     <h6>Clients</h6>
@@ -69,7 +50,7 @@ $clients = $stmt->get_result();
     </table>
     <?php endif; ?>
 
-    <?php if ($members->num_rows == 0 && $clients->num_rows == 0): ?>
+    <?php if ($clients->num_rows == 0): ?>
     <p>No results found.</p>
     <?php endif; ?>
 </div>

@@ -20,7 +20,7 @@ if ($_POST) {
 </head>
 <body>
     <div class="container my-5">
-        <h2>New Client</h2>
+        <h2>New Members</h2>
         <form method="post">
             <input type="text" name="name" placeholder="Name" class="form-control mb-2" required>
             <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>

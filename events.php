@@ -1,7 +1,7 @@
 <?php include 'config.php'; ?>
 <?php
 
-$result = $conn->query("SELECT * FROM clients");
+$result = $conn->query("SELECT * FROM Events");
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,19 +11,21 @@ $result = $conn->query("SELECT * FROM clients");
 <div class="container my-5">
    
 <div class="mb-4">
-    <form method="get" action="search_client.php" class="d-flex">
+    <form method="get" action="search_events.php" class="d-flex">
         <input type="text" name="search" class="form-control me-2" placeholder="Search..." required>
         <button type="submit" class="btn btn-primary">Search</button>
-        <a href="create.php" class="btn btn-success ms-2">+ New</a>
+        <a href="createEvents.php" class="btn btn-success ms-2">+ New</a>
     </form>
     <table class="table table-striped">
-        <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th></tr>
+        <tr><th>Event ID</th><th>Name</th><th>Date</th><th>Veneu</th><th>Fee</th></tr>
         <?php while($row = $result->fetch_assoc()): ?>
         <tr>
-            <td><?= $row['id'] ?></td>
-            <td><?= $row['name'] ?></td>
-            <td><?= $row['email'] ?></td>
-            <td><?= $row['phone'] ?></td>
+            <td><?= $row['evCode'] ?></td>
+            <td><?= $row['evName'] ?></td>
+            <td><?= $row['evDate'] ?></td>
+            <td><?= $row['evVenue'] ?></td>
+            <td><?= $row['evRFee'] ?></td>
+
           
             </td>
         </tr>

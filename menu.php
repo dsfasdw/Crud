@@ -11,7 +11,7 @@
          
             <div class="d-grid gap-3" style="max-width: 200px;">
                 <a class="btn btn-primary btn-lg shadow" href="index.php">Department</a>
-                <button class="btn btn-success btn-lg shadow">Tournament</button>
+                <a class="btn btn-primary btn-lg shadow" href="events.php">Events Management</a>
                 <button class="btn btn-info btn-lg shadow">Coach</button>
                 <button class="btn btn-warning btn-lg shadow">Dean</button>
             </div>

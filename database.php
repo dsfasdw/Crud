@@ -1,0 +1,47 @@
+database query
+
+CREATE TABLE clients (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR (100) NOT NULL,
+    email VARCHAR (200) NOT NULL UNIQUE,
+    phone VARCHAR(20) NULL,
+    address VARCHAR(200) NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(10) DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE clients (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    member_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL, 
+    email VARCHAR(200) NOT NULL UNIQUE,
+    phone VARCHAR(20) NULL,
+    address VARCHAR(200) NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (member_id) REFERENCES members(id)
+);
+
+CREATE TABLE Events {
+    evCode INT AUTO_INCREMENT PRIMARY KEY
+    evName TEXT NOT NULL,
+    evDate DATE NOT NULL,
+    evVenue TEXT NOT NULL,
+    evRFee DECIMAL(10,2) NOT NULL
+
+}
+
+CREATE TABLE Participants (
+    partID INT NOT NULL PRIMARY KEY,
+    evCode INT NOT NULL,
+    partFName TEXT NOT NULL,
+    partLName TEXT NOT NULL,
+    partIDRate DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (evCode) REFERENCES Events(evCode)
+);

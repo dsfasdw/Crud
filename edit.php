@@ -23,7 +23,7 @@ if ($_POST) {
         <input type="text" name="phone" value="<?= $phone ?>" class="form-control mb-2" placeholder="Phone" required>
         <input type="text" name="address" value="<?= $address ?>" class="form-control mb-2" placeholder="Address" required>
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="index.php" class="btn btn-outline-secondary">Cancel</a>
+        <a href="search_members.php" class="btn btn-outline-secondary">Cancel</a>
     </form>
 </div>
 </body>
